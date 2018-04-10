@@ -1,0 +1,83 @@
+
+html {
+    font-size: 20px!important;
+}
+
+@media only screen and (min-width: 401px) {
+    html {
+        font-size: 25px !important;
+    }
+}
+
+@media only screen and (min-width: 428px) {
+    html {
+        font-size: 26.75px !important;
+    }
+}
+
+@media only screen and (min-width: 481px) {
+    html {
+        font-size: 30px !important;
+    }
+}
+
+@media only screen and (min-width: 569px) {
+    html {
+        font-size: 35px !important;
+        
+    }
+}
+
+@media only screen and (min-width: 641px) {
+    html {
+        font-size: 40px !important;
+    }
+}
+@mixin border-1px($color){
+    position:relative;
+    &:after{
+        width:100%;
+        content: "";
+        position:absolute;
+        left:0;
+        bottom:0;
+        border-top:1px solid $color;
+    }
+}
+
+@media (-webkit-min-device-pixel-ratio:1.5),(min-device-pixel-ratio:1.5){
+   .border-1px{
+        &:after{
+            -webkit-transform: scaleY(0.7);
+            transform:scaleY(0.7);
+        }
+    }
+}
+@media (-webkit-min-device-pixel-ratio:2),(min-device-pixel-ratio:2){
+   .border-1px{
+        &:after{
+            -webkit-transform: scaleY(0.5);
+            transform:scaleY(0.5);
+        }
+    }
+}
+
+@mixin bg-image($url){
+    background-image:url($url+"@2x.png") ;
+    @media (-webkit-min-device-pixel-ratio:3),(min-device-pixel-ratio:3){
+        background-image:url($url+"@3x.png");
+    }
+}
+.clearfix{
+    display:inline-block;
+    &:after{
+        display: block;
+        content:"";
+        height:0;
+        line-height: 0;
+        clear: both;
+        visibility: hidden;
+    }
+}
+
+
